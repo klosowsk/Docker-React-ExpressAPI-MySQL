@@ -10,20 +10,21 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-//Default port 3000 is already in use by the app
+// Default port 3000 is already in use by the app
 app.listen(3001);
 
-//Connection to the MySQL database
-var connection = mysql.createConnection({
-  host     : 'db',
-  user     : 'root',
-  password : process.env.MYSQL_ROOT_PASSWORD,
-  // database : 'dbname'
-});
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected to db!");
-});
+// Connection to the MySQL database
+// just uncomment the code bellow to connect to the MySQL DATABASE 
+// var connection = mysql.createConnection({
+//   host     : 'db',
+//   user     : 'root',
+//   password : process.env.MYSQL_ROOT_PASSWORD,
+//   database : 'dbname'
+// });
+// connection.connect(function(err) {
+//     if (err) throw err;
+//     console.log("Connected to db!");
+// });
 
 // setup cors
 app.use(cors())
