@@ -7,6 +7,8 @@ preconfigured as the database admin. And even better, all stack works as Docker 
 After install Docker, run the following code to setup the development or production stack:
 
 ````
+$ npm install -g create-react-app  
+
 $ docker-compose up
 ````
 
