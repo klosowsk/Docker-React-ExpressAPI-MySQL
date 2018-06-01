@@ -1,0 +1,42 @@
+version: '3'
+services:
+  web:
+    build: './app'
+    # Host port proxy to 80
+    ports:
+      - "80:3000"
+    volumes:
+      - ./app/src:/app/src
+    environment:
+      # If a production enviroment is desired, set the APP_ENV variable to production
+      # APP_ENV: 'production'
+      APP_ENV: 'development'
+    links:
+      - api
+
+  api:
+    build: './api'
+    # api host port defined the same as in the container
+    links: 
+      - db
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - "3001:3001"
+    volumes:
+      - "./api:/api"
+
+  db:
+    # This image exposes the standard MySQL port (3306)
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - db
+    # phpmyadmin port defined to 3002
+    ports:
+      - "3002:80"
+    
