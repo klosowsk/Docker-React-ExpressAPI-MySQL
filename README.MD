@@ -1,4 +1,4 @@
-## Docker + React App + API Express + MySQL + phpMyAdmin
+## Docker + React App + API Express + MySQL
 
 This project implements a quick start up project using the facebook`s create-react-app as the app front end,
 a configured express API server connected to a MySQL database (easy to change) and optionally the phpMyAdmin
